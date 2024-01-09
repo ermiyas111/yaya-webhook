@@ -11,7 +11,7 @@
   },
   "postgresql": {
     "client": "pg",
-    "connection": "postgres://postgres:postgres@localhost:5432/yaya-webhook"
+    "connection": "postgres://postgres:spamxpass@localhost:5432/yaya-webhook"
   },
   "secret": "bJHZ07JYFa"
 }

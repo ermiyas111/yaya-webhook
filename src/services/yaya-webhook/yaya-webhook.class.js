@@ -29,10 +29,8 @@ export class YayaWebhookService extends KnexService {
 
 const verifySignature = (data, signature) => {
   const secretKey = app.get('secret');
-  
   const signedPayload = jwtSign.sign(Buffer.from(Object.values(data).join(''), 'utf-8').toString(), secretKey, {algorithm: "HS256"});
   const currentUnix = (new Date()).getTime()/ 1000 | 0;
-  console.log(secretKey, signedPayload,currentUnix,  signedPayload === signature, ((currentUnix - data.timestamp) <= CONSTANTS.TimestampExpiry))
   if(signedPayload === signature && ((currentUnix - data.timestamp) <= CONSTANTS.TimestampExpiry)){
     return true;
   }
