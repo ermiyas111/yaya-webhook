@@ -55,24 +55,7 @@ export const yayaWebhook = (app) => {
     },
     after: {
       all: [],
-      create: [async (context) => {
-         if(context.result?.code === 401) {
-          return context;
-         } else {
-          const paymentDetails = await context.app.service('payment_details');
-          await paymentDetails.create({
-            amount: context.data.amount,
-            yaya_id: context.data.id,
-            currency: context.data.currency,
-            cause: context.data.cause,
-            full_name: context.data.full_name,
-            account_name: context.data.account_name,
-            invoice_url: context.data.invoice_url,
-          });
-          return context;
-         }
-        },
-      ]
+      create: []
     },
     error: {
       all: []
