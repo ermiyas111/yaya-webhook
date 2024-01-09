@@ -1,0 +1,69 @@
+{
+  "name": "yaya-webhook",
+  "description": "This app handles YaYa wallet webhook notifications.",
+  "version": "0.0.0",
+  "homepage": "",
+  "private": true,
+  "keywords": [
+    "feathers"
+  ],
+  "author": {},
+  "contributors": [],
+  "bugs": {},
+  "engines": {
+    "node": ">= 16.18.0"
+  },
+  "feathers": {
+    "language": "js",
+    "packager": "npm",
+    "database": "postgresql",
+    "framework": "express",
+    "transports": [
+      "rest",
+      "websockets"
+    ],
+    "schema": "json"
+  },
+  "directories": {
+    "lib": "src",
+    "test": "test"
+  },
+  "main": "lib/index",
+  "type": "module",
+  "scripts": {
+    "start": "node src",
+    "dev": "nodemon src/",
+    "prettier": "npx prettier \"**/*.js\" --write",
+    "mocha": "cross-env NODE_ENV=test mocha test/ --recursive --exit",
+    "test": "cross-env NODE_ENV=test npm run migrate && npm run mocha",
+    "bundle:client": "npm pack --pack-destination ./public",
+    "migrate": "knex migrate:latest",
+    "migrate:make": "knex migrate:make"
+  },
+  "dependencies": {
+    "@feathersjs/adapter-commons": "^5.0.14",
+    "@feathersjs/authentication": "^5.0.14",
+    "@feathersjs/authentication-client": "^5.0.14",
+    "@feathersjs/configuration": "^5.0.14",
+    "@feathersjs/errors": "^5.0.14",
+    "@feathersjs/express": "^5.0.14",
+    "@feathersjs/feathers": "^5.0.14",
+    "@feathersjs/knex": "^5.0.14",
+    "@feathersjs/schema": "^5.0.14",
+    "@feathersjs/socketio": "^5.0.14",
+    "@feathersjs/transport-commons": "^5.0.14",
+    "compression": "^1.7.4",
+    "knex": "^3.1.0",
+    "pg": "^8.11.3",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@feathersjs/cli": "^5.0.14",
+    "@feathersjs/rest-client": "^5.0.14",
+    "axios": "^1.6.3",
+    "cross-env": "^7.0.3",
+    "mocha": "^10.2.0",
+    "nodemon": "^3.0.2",
+    "prettier": "^3.1.1"
+  }
+}
