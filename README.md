@@ -8,7 +8,11 @@ This system tries to implement the required functionalities mentioned on the tes
 Both the database and the backend code are hosted on AWS EC2 instance.
 
 # How to test
-To test the functionality, you can use postman desktop application. The payload of the test request is:
+To test the functionality, you can use postman desktop application. The request url which has a POST method is:
+```
+http://ec2-3-18-214-146.us-east-2.compute.amazonaws.com:3030/yaya-webhook
+```
+The payload of the test request is:
 ```
 {
   "id": "1dd2854e-3a79-4548-ae36-97e4a18ebf81",
