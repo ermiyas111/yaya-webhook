@@ -1,5 +1,5 @@
 # yaya-webhook
-This is a test task project created, to demonstrate the integration of a system with YaYa wallet system using web hooks. It is developed using feathersjs framwork.
+This is a test task project created, to demonstrate the integration of a system with YaYa wallet system using web hooks. It is developed using feathersjs framweork.
 
 # Description
 This system tries to implement the required functionalities mentioned on the test document. When a system makes a request to the webhook provided by the system, it takes the payload and verifies the signature. To do this it signs the UTF-8 format of the payload with a predetermined secret key, that is stored as environment variable(default.json). Then it compares it with the signed signature sent as a header from the payment platform. In addition to this it also checks if the request has expired by checking the timestamp sent as payload, and if it passed the predetermined expiry time(usually 5 minutes but set to 2 months for testing purpose). If it passes both this condition, it saves the payment information on a database and without awaiting for the response returns 201. If not it returns an error response with 401 status code. 
